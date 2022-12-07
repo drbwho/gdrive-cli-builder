@@ -36,14 +36,15 @@ jobs:
 
     - name: Add support for MIPS and MIPSLE
       run: |
-        cd $HOME/go/src/github.com/drbwho/gdrive/vendor/github.com/soniakeys/graph
+        #cd $HOME/go/src/github.com/drbwho/gdrive/vendor/github.com/soniakeys/graph
+        cd $HOME/go/src/github.com/drbwho/gdrive/tree/master/vendor/github.com/soniakeys/graph
         sed -i "s/+build 386 arm/+build 386 arm mips mipsle/g" bits32.go
         sed -i "s/+build \!386,\!arm/+build \!386,\!arm,\!mips,\!mipsle/g" bits64.go
     
     - name: Change CLIENT ID & SECRET
       env:
-        CLIENT_ID: ${{ secrets.CLIENT_ID }}
-        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        #CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        #CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         REDIRECT_URL: ${{ secrets.REDIRECT_URL }}
         
       run: |
