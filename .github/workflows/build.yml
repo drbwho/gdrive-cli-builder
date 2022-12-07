@@ -32,12 +32,11 @@ jobs:
         export PATH=$PATH:$GOBIN
         mkdir -p $GOPATH/pkg
         mkdir -p $GOBIN
-        go get github.com/Msameim181/gdrive
+        go get github.com/drbwho/gdrive
 
     - name: Add support for MIPS and MIPSLE
       run: |
-        #cd $HOME/go/src/github.com/drbwho/gdrive/vendor/github.com/soniakeys/graph
-        cd $HOME/go/src/github.com/drbwho/gdrive/tree/master/vendor/github.com/soniakeys/graph
+        cd $HOME/go/src/github.com/drbwho/gdrive/vendor/github.com/soniakeys/graph
         sed -i "s/+build 386 arm/+build 386 arm mips mipsle/g" bits32.go
         sed -i "s/+build \!386,\!arm/+build \!386,\!arm,\!mips,\!mipsle/g" bits64.go
     
